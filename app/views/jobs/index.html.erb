@@ -1,0 +1,21 @@
+<div class='col-md-12'>
+  <h2>Jobs</h2>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Title</th>
+        <th>Updated_at</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @jobs.each do |job| %>
+      <tr>
+        <td>#</td>
+        <td><%= job.title %></td>
+        <td><%= job.updated_at %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

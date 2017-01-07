@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  content: MyText
+  wage_min: 1
+  wage_max: 1
+  contact: MyString
+  is_hidden: false
+
+two:
+  title: MyString
+  content: MyText
+  wage_min: 1
+  wage_max: 1
+  contact: MyString
+  is_hidden: false

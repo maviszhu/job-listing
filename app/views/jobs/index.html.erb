@@ -8,6 +8,8 @@
       <tr>
         <th>#</th>
         <th>Title</th>
+        <th>Wages</th>
+        <th>Contact</th>
         <th>Updated_at</th>
         <th></th>
       </tr>
@@ -17,6 +19,8 @@
       <tr>
         <td>#</td>
         <td><%= link_to(job.title, job_path(job))%></td>
+        <td><%= job.wage_min %> ~ <%= job.wage_max %></td>
+        <td><%= job.contact %></td>
         <td><%= job.updated_at %></td>
         <td>
           <% if current_user && current_user == job.user%>

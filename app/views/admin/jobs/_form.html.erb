@@ -1,8 +1,9 @@
-<%= simple_form_for @job do |f| %>
+<%= simple_form_for [:admin, @job] do |f| %>
 <%= f.input :title %>
 <%= f.input :content %>
 <%= f.input :wage_min %>
 <%= f.input :wage_max %>
 <%= f.input :contact %>
+<%= f.input :is_hidden, label: '隐藏此条信息'%>
 <%= f.submit "Submit", class: 'btn btn-primary', data: { disable_with: "Submitting"} %>
 <% end %>

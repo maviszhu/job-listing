@@ -1,6 +1,7 @@
 class Admin::JobsController < ApplicationController
   before_action :authenticate_user!
   before_filter :check_admin
+  layout 'admin'
   def index
     @jobs = Job.all.order('updated_at DESC')
   end
@@ -43,6 +44,20 @@ class Admin::JobsController < ApplicationController
     end
   end
 
+  def publish
+    @job = Job.find(params[:id])
+    @job.is_hidden = false
+    @job.save
+    redirect_to :back
+  end
+
+  def hide
+    @job = Job.find(params[:id])
+    @job.is_hidden = true
+    @job.save
+    redirect_to :back
+  end
+
 
   private
   def job_params
@@ -53,7 +68,5 @@ class Admin::JobsController < ApplicationController
       redirect_to root_path, alert: 'You are not admin!'
     end
   end
-
-
 
 end

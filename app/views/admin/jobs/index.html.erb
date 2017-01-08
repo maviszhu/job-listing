@@ -1,4 +1,4 @@
-<div class='col-md-12'>
+<div>
   <h2 class='text-center'>All Jobs</h2>
   <div>
     <%= link_to('Add a job', new_admin_job_path, class: 'btn btn-primary pull-right') %>
@@ -8,31 +8,28 @@
       <tr>
         <th>#</th>
         <th>Title</th>
-        <th>Status</th>
         <th>Creator</th>
         <th>Updated_at</th>
-        <th></th>
+        <th colspan="3"></th>
       </tr>
     </thead>
     <tbody>
       <% @jobs.each do |job| %>
       <tr>
         <td>#</td>
-        <td><%= link_to(job.title, job_path(job))%></td>
-        <td>
-          <% if job.is_hidden %>
-          隐藏
-          <% else %>
-          公开
-          <% end %>
-        </td>
+        <td><%= job_status(job) %><%= link_to(job.title, job_path(job))%></td>
         <td><%= job.user.email %></td>
         <td><%= job.updated_at %></td>
         <td>
-          <% if current_user && current_user.admin? %>
+          <% if job.is_hidden %>
+          <%= link_to('Publish', publish_admin_job_path(job), method: :post, class: 'btn btn-default') %>
+          <% else %>
+          <%= link_to('Hide', hide_admin_job_path(job), method: :post, class: 'btn btn-default') %>
+          <% end %>
+        </td>
+        <td>
           <%= link_to('Edit', edit_admin_job_path(job), class: 'btn btn-sm btn-default') %>
           <%= link_to('Delete', admin_job_path(job), method: :delete, data: {confirm:'Are you sure?'},class: 'btn btn-sm btn-default') %>
-          <% end %>
         </td>
       </tr>
       <% end %>

@@ -15,7 +15,7 @@
         <th>薪资下限</th>
         <th>薪资上限</th>
         <th>更新时间</th>
-        <th colspan="2"></th>
+        <th colspan="3"></th>
       </tr>
       <tbody>
         <% @jobs.each do |job| %>
@@ -28,6 +28,7 @@
             <td><%= link_to('Edit', edit_job_path(job), class: 'btn btn-default btn-sm') %></td>
             <td><%= link_to('Delete', job_path(job), class: 'btn btn-default btn-sm', method: :delete, data: {confirm:'Are you sure?'}) %></td>
           <% end %>
+          <td><%= link_to('投递简历', new_job_resume_path(job), class: 'btn btn-default btn-sm') %></td>
         </tr>
         <% end %>
       </tbody>

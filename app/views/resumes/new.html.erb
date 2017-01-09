@@ -1,0 +1,9 @@
+<div class='col-md-12'>
+<h2 class='text-center'>投递简历</h2>
+<div class='well'>
+<%= simple_form_for [@job, @resume] do |f| %>
+<%= f.input :content %>
+<%= f.input :attachment %>
+<%= f.submit "Submit", data: {disable_with: 'Submitting...'}, class: 'btn btn-primary' %>
+<% end %>
+</div>

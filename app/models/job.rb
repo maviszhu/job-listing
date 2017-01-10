@@ -15,4 +15,17 @@ class Job < ApplicationRecord
     self.save
   end
 
+  def resume_user_count
+    s = []
+    self.resumes.each do |resume|
+      s += %w(resume.user.email)
+    end
+    return s.uniq.size
+  end
+
+  def resume_count
+    self.resumes.count
+  end
+
+
 end

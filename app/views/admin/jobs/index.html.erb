@@ -9,8 +9,8 @@
         <th>#</th>
         <th>Title</th>
         <th>Wages</th>
-        <th>Email</th>
         <th>Updated_at</th>
+        <th>简历投递</th>
         <th colspan="2"></th>
       </tr>
       <tbody>
@@ -19,8 +19,8 @@
           <td>#</td>
           <td><%= render_job_status(job) %><%= link_to(job.title, admin_job_path(job)) %></td>
           <td><%= job.wage_min %>~<%= job.wage_max %></td>
-          <td><%= job.email %></td>
           <td><%= job.updated_at %></td>
+          <td>投递<%= job.resume_user_count %>人，简历共<%= job.resume_count %>份</td> 
           <% if current_user %>
             <td>
               <% if job.is_hidden %>

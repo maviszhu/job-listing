@@ -20,7 +20,10 @@
           <td><%= render_job_status(job) %><%= link_to(job.title, admin_job_path(job)) %></td>
           <td><%= job.wage_min %>~<%= job.wage_max %></td>
           <td><%= job.updated_at %></td>
-          <td>投递<%= job.resume_user_count %>人，简历共<%= job.resume_count %>份</td> 
+          <td>
+          <%= link_to(job_resumes_path(job)) do %><%= job.resume_user_count %>人投递，简历<%= job.resume_count %>份
+          <% end %>
+          </td>
           <% if current_user %>
             <td>
               <% if job.is_hidden %>

@@ -6,4 +6,12 @@ module Admin::JobsHelper
       content_tag(:span, '', :class => 'fa fa-unlock')
     end
   end
+  def job_resume_user_count(job)
+    s = []
+    job.resumes.each do |resume|
+      s.push(resume.user)
+    end
+    return s.uniq.size
+  end
+
 end

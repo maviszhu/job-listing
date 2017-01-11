@@ -9,6 +9,7 @@
         <th>#</th>
         <th>Title</th>
         <th>Creator</th>
+        <th>简历投递</th>
         <th>Updated_at</th>
         <th colspan="3"></th>
       </tr>
@@ -19,6 +20,10 @@
         <td>#</td>
         <td><%= job_status(job) %><%= link_to(job.title, admin_job_path(job))%></td>
         <td><%= job.user.email %></td>
+        <td>
+          <%= link_to(admin_job_resumes_path(job)) do %><%= job_resume_user_count(job) %>人投递，简历<%= job.resumes.count %>份
+          <% end %>
+        </td>
         <td><%= job.updated_at %></td>
         <td>
           <% if job.is_hidden %>

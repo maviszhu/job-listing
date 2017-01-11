@@ -1,0 +1,23 @@
+<div class='col-md-12'>
+<h2>职位： <%= @job.title %> 下的所有简历</h2>
+  <p><%= job_resume_user_count(@job) %>人投递，简历<%= @job.resumes.count %>份</p>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>投递人</th>
+        <th>Download Link</th>
+        <th>&nbsp;</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @resumes.each do |resume| %>
+        <tr>
+          <td><%= resume.description %></td>
+          <td><%= resume.user.email %></td>
+          <td><%= link_to "Download Resume", resume.attachment_url %></td>
+          <td><%= button_to "Delete",'#', method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{resume.description}?" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>

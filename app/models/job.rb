@@ -20,7 +20,7 @@ class Job < ApplicationRecord
     self.resumes.each do |resume|
       s.push(resume.user)
     end
-    return s.uniq.size
+    return s.uniq.length
   end
 
   def resume_count

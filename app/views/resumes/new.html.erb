@@ -1,0 +1,6 @@
+<h2>send resume</h2>
+<%= simple_form_for [@job,@resume] do |f| %>
+<%= f.input :description %>
+<%= f.input :attachment %>
+<%= f.submit :'Submit', data: {disable_with: 'Submitting...'} %>
+<% end %>

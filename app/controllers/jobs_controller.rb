@@ -2,7 +2,13 @@ class JobsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :update, :edit, :destroy]
   before_action :check_user, only: [:edit, :update, :destroy]
   def index
-    @jobs = Job.where(:is_hidden => false).order('updated_at DESC')
+    @jobs = case params[:order]
+    when 'by_wage_min' then Job.where(:is_hidden => false).order('wage_min DESC')
+    when 'by_wage_max' then Job.where(:is_hidden => false).order('wage_max DESC')
+    when 'by_updated_at' then Job.where(:is_hidden => false).order('updated_at DESC')
+    else
+      Job.where(:is_hidden => false).order('created_at DESC')
+    end
   end
 
   def show

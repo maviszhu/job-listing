@@ -1,9 +1,9 @@
 <div class='col-md-12'>
-  <h2>Jobs</h2>
-  <% if current_user %>
   <div>
+    <h2>Jobs</h2>
+    <% if current_user %>
     <%= link_to('Add a job', new_job_path, class: 'btn btn-primary pull-right') %>
-  <% end %>
+    <% end %>
   </div>
 
   <div class='dropdown' aria-labelledby='dropdownMenuDivider'>

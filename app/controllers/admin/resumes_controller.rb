@@ -1,4 +1,6 @@
 class Admin::ResumesController < ApplicationController
+  before_action :authenticate_user!
+  before_filter :check_admin
   def index
     @job = Job.find(params[:job_id])
     @resumes = @job.resumes.order('created_at DESC')

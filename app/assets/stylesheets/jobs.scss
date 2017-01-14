@@ -1,3 +1,40 @@
 // Place all the styles related to the jobs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body{ margin-top:20px;}
+.wage {font-size: 20px;color: #fa6041;}
+.section-box h2 { margin-top:0px;}
+.section-box h2 a { font-size:15px; }
+.section-box hr {margin-top: 0;margin-bottom: 5px;border: 0;border-top: 1px solid rgb(199, 199, 199);}
+
+.panel.panel-horizontal {
+    display:table;
+    width:100%;
+}
+.panel.panel-horizontal > .panel-heading, .panel.panel-horizontal > .panel-body, .panel.panel-horizontal > .panel-footer {
+    display:table-cell;
+}
+.panel.panel-horizontal > .panel-heading, .panel.panel-horizontal > .panel-footer {
+    width: 40%;
+    border:0;
+    vertical-align: middle;
+}
+.panel.panel-horizontal > .panel-heading {
+    border-right: 1px solid #ddd;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 4px;
+
+}
+.panel.panel-horizontal > .panel-footer {
+    border-left: 1px solid #ddd;
+    border-top-left-radius: 0;
+    border-bottom-right-radius: 4px;
+}
+
+.email {
+    font-size: 1em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

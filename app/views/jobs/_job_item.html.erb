@@ -1,61 +1,59 @@
-<div class="row-fluid">
-  <div class="col-md-12">
-    <!--div class="well well-sm"-->
-    <div class="row">
+<!--div class="well well-sm"-->
+<div class="row">
 
-      <div class="panel panel-default panel-horizontal">
-        <div class="panel-heading text-center" style="width:18em;">
-          <p>
-            <span class="fa fa-rmb"></span>
-            <span class="wage"><%= job.wage_min %></span>~</p>
-          <p>
-            <span class="fa fa-rmb"></span>
-            <span class="wage"><%= job.wage_max %></span>
-            <span class="text-muted">/月</span>
-          </p>
-          <p><%= job.created_at %></p>
-          <hr/>
-          <span>
-            <h5>南京</h5>
-          </span>
-        </div>
-        <div class="panel-body">
-          <div class="col-xs-12 col-md-12 section-box">
-            <div class="email" style="padding-top: 10px;">小米科技</div>
-            <%= link_to(job_path(job)) do%>
-            <h3><%= job.title %></h3><% end %>
-            <p>
-              这是一段职位描述。<br>
-              这是一段职位描述。<br>
-            </p>
-            <hr/>
-            <div class="row rating-desc">
-              <div class="col-md-6">
-                <span class="badge"><%= job_resume_user_count(job) %></span>人已投递
-              </div>
-              <div class="email col-md-6 text-right">
-                <span><%= job.contact %></span>
-              </div>
-            </div>
+  <div class="panel panel-default panel-horizontal">
+    <div class="panel-heading text-center" style="width:18em">
+      <p>
+        <span class="fa fa-rmb"></span>
+        <span class="wage"><%= job.wage_min %></span>~</p>
+      <p>
+        <span style="width: 5%"></span>
+        <span class="fa fa-rmb"></span>
+        <span class="wage"><%= job.wage_max %></span>
+        <span class="text-muted">/月</span>
+      </p>
+      <p>
+        <span style="width: 5%"></span><%= job.created_at %></p>
+      <hr/>
+      <span>
+        <h5>&nbsp;&nbsp;<i class="fa fa-map-marker"></i>&nbsp;南京</h5>
+      </span>
+    </div>
+    <div class="panel-body">
+      <div class="col-xs-12 col-md-12 section-box">
+        <div class="email" style="padding-top: 10px;">小米科技</div>
+        <%= link_to(job_path(job)) do%>
+        <h3><%= job.title %></h3><% end %>
+        <p>
+          这是一段职位描述。<br>
+          这是一段职位描述。<br>
+        </p>
+        <hr/>
+        <div class="row rating-desc">
+          <div class="col-md-6">
+            <span class="badge"><%= job_resume_user_count(job) %></span>人已投递
+          </div>
+          <div class="email col-md-6 text-right">
+            <span><%= job.contact %></span>
           </div>
         </div>
-
-        <div class="panel-footer text-center" style="width:4em">
-          <% if current_user && current_user == job.user%>
-          <%= link_to(edit_job_path(job), class: 'btn btn-default') do%>
-          <i class="fa fa-cog" aria-hidden="true"></i><% end %><br><br>
-          <%= link_to(job_path(job), method: :delete, data: {confirm:'Are you sure?'},class: 'btn btn-default') do%>
-          <i class="fa fa-trash-o"></i><% end %>
-        <% else %>
-          <button type="button" class="btn btn-default">
-            <span class="fa fa-heart-o" aria-hidden="true"></span>
-          </button>
-          <% end %>
-
-        </div>
-
       </div>
     </div>
-    <!--/div-->
+
+    <div class="panel-footer text-center" style="width:4em">
+      <% if current_user && current_user == job.user%>
+      <%= link_to(edit_job_path(job), class: 'btn btn-default') do%>
+      <i class="fa fa-cog" aria-hidden="true"></i><% end %><br><br>
+      <%= link_to(job_path(job), method: :delete, data: {confirm:'Are you sure?'},class: 'btn btn-default') do%>
+      <i class="fa fa-trash-o"></i><% end %>
+    <% else %>
+      <button type="button" class="btn btn-default">
+        <span class="fa fa-heart-o" aria-hidden="true"></span>
+      </button>
+      <% end %>
+
+    </div>
+
   </div>
 </div>
+<!--/div-->

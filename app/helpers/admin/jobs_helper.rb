@@ -3,7 +3,7 @@ module Admin::JobsHelper
     if job.is_hidden
       content_tag(:span, '', :class => 'fa fa-lock')
     else
-      content_tag(:span, '', :class => 'fa fa-unlock')
+      content_tag(:span, '', :class => 'fa fa-unlock text-success')
     end
   end
   def job_resume_user_count(job)

@@ -17,11 +17,14 @@
           <span class="job_date">更新时间</span>
           <span class="job_title">职位名称</span>
           <span class="job_resume">简历投递</span>
-          <span class="job_set">操作</span>
+          <span class="job_set1">操作</span>
+          <span class="job_set2">删除</span>
         </li>
         <%= render :partial => 'job_item', :collection => @jobs, :as => :job %>
       </ul>
     </div>
   </div>
-
+  <div class="text-center">
+    <%= will_paginate @jobs, renderer: BootstrapPagination::Rails %>
+  </div>
 </div>

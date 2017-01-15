@@ -5,36 +5,56 @@
       返回职位列表<% end %></p>
   </div>
 
-  <div class='row well'>
-    <div class="col-md-2">
-      <i class='fa fa-lock'></i>
-      <p class='text-muted'>已有<%= job_resume_user_count(@job) %>人投递</p>
-    </div>
-    <div class='col-md-4'>
-      <h2 class="bnb_middle_big" id='title' style="line-height:1.4em;"><%= @job.title %></h2>
-      <div style="padding-top: 20px;">
-        <p>薪资:
-          <b style="font-size: 16px; color: rgb(224,69,60)"><%= @job.wage_min %>~<%= @job.wage_max %></b>
-        </p>
-        <p>职位要求</p>
-        <p style="margin-top: 10px;">创建于<%= @job.created_at %></p>
+  <div class='well row'>
+    <div class="row">
+      <div class='col-md-12'>
+        <h2><%= @job.title %></h2>
+        <h4 class="text-muted">小米科技</h4>
       </div>
     </div>
-    <div class="col-md-4">
-      <p>发布人：<%= @job.user.email %></p>
-      <p>联系方式：<%= @job.contact %></p>
-    </div>
-    <% if current_user && current_user == @job.user %>
-    <%= link_to('修改', edit_job_path(@job), class: 'btn btn-primary pull-right') %>
 
-  <% else %>
-    <%= link_to('发个简历', new_job_resume_path(@job),class: 'btn btn-primary pull-right') %>
-    <% end %>
+    <div class="row">
+
+      <div class="col-md-4" style="padding-top: 20px;">
+        <p>
+          <span style="font-size: 20px; color: rgb(224,69,60)"><%= @job.wage_min %>~<%= @job.wage_max %></span>
+          <span>/月</span>
+          <span>&nbsp;&nbsp;<i class="fa fa-map-marker"></i>&nbsp;南京</span>
+        </p>
+        <p style="margin-top: 10px;">
+          <i class="fa fa-calendar"></i>&nbsp;<%= @job.created_at %></p>
+      </div>
+
+      <div class="col-md-4">
+        <p>发布人：<%= @job.user.email %></p>
+        <p>联系方式：<%= @job.contact %></p>
+        <p class='text-muted'>已有<span class="badge"><%= job_resume_user_count(@job) %></span>人投递</p>
+      </div>
+
+      <div class="col-md-4">
+
+        <% if current_user && current_user == @job.user %>
+        <%= link_to('修改', edit_job_path(@job), class: 'btn btn-primary pull-right') %>
+
+      <% else %>
+        <div class="pull-right">
+          <p><%= link_to('发个简历', new_job_resume_path(@job),class: 'btn btn-primary btn-block') %></p>
+
+          <p><%= link_to('#',class: 'btn btn-default btn-block') do %>
+            <i class="fa fa-heart-o text-danger"></i>&nbsp;&nbsp;收藏<% end %></p>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="row well" id='description_for_job'>
-    <p>职位描述</p>
-    <p><%= @job.content %></p>
+  <div class="row panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">职位描述</h3>
+    </div>
+    <div class="panel-body">
+      <p><%= simple_format(@job.content) %></p>
+    </div>
   </div>
 
   <div class="row panel panel-default">

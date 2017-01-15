@@ -3,7 +3,7 @@ class Admin::JobsController < ApplicationController
   before_filter :check_admin
   # layout 'admin'
   def index
-    @jobs = Job.all.order('updated_at DESC')
+    @jobs = Job.all.paginate(:page => params[:page], :per_page => 10).order('updated_at DESC')
   end
 
   def show

@@ -7,15 +7,17 @@
     <i class="fa fa-user-circle-o"></i>&nbsp;<%= job_resume_user_count(job) %>&nbsp;,&nbsp;
     <i class="fa fa-envelope-o"></i>&nbsp;<%= job.resumes.count %>
     <% end %></span>
-  <span class="job_set">
+  <span class="job_set1">
     <% if job.is_hidden %>
     <%= link_to('发布', publish_admin_job_path(job), method: :post, class: 'btn-sm btn-success') %>
   <% else %>
-    <%= link_to('隐藏', hide_admin_job_path(job), method: :post, class: 'btn-sm btn-default') %>
+    <%= link_to('隐藏', hide_admin_job_path(job), method: :post, class: 'btn-sm btn-info') %>
     <% end %>
     <%= link_to(edit_admin_job_path(job), class: 'btn btn-sm btn-default') do %>
     <i class="fa fa-cog"></i><% end %>
+  </span>
+  <span class="job_set2">
     <%= link_to(admin_job_path(job), method: :delete, data: {confirm:'Are you sure?'},class: 'btn btn-sm btn-danger') do%>
     <i class="fa fa-trash-o"></i><% end %>
-  </span><br/>
+  </span>
 </li>

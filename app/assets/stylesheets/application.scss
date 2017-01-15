@@ -70,7 +70,7 @@ $font-size-base:          14px !default;
 $font-size-large:         ceil(($font-size-base * 1.25)) !default; // ~18px
 $font-size-small:         ceil(($font-size-base * 0.85)) !default; // ~12px
 
-$font-size-h1:            floor(($font-size-base * 2.6)) !default; // ~36px
+$font-size-h1:            floor(($font-size-base * 3.2)) !default; // ~36px
 $font-size-h2:            floor(($font-size-base * 2.15)) !default; // ~30px
 $font-size-h3:            ceil(($font-size-base * 1.7)) !default; // ~24px
 $font-size-h4:            ceil(($font-size-base * 1.25)) !default; // ~18px
@@ -889,3 +889,24 @@ $hr-border:                   $gray-lighter !default;
 .navbar-nav.navbar-right .btn { position: relative; z-index: 2; padding: 4px 20px 0px 15px; margin: 10px auto; }
 .btn.btn-circle { border-radius: 40px; }
 .btn.btn-outline { background-color: transparent; }
+.navbar-default {
+    margin-bottom: 0;//底部 margin 不撑开距离
+}
+@media (min-width: 768px) {
+    .navbar {
+        border-radius: 0px;//圆角为0
+    }
+}
+.navbar-default .navbar-brand{
+   padding: 10px 10px 10px 60px;
+   line-height: 30px;//文字行高
+}
+.navbar-default .navbar-right{
+   padding-right: 60px;
+ }
+ .container-fluid .jumbotron{
+   border-radius: 0px;//圆角为0
+ }
+.innercontent{
+  margin: 20px 60px;
+}

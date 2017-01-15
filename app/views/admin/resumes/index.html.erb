@@ -1,4 +1,10 @@
-<h2>职位： <%= @job.title %> 下的所有简历</h2>
-<p><%= job_resume_user_count(@job) %>人投递，简历<%= @job.resumes.count %>份</p>
-<hr>
-<%= render :partial => 'resume', :collection => @resumes, :as => :resume %>
+<div class="innercontent">
+  <div class="row">
+    <h2>职位：
+      <span class="text-primary"><%= @job.title %></span>
+      下的所有简历</h2>
+    <p><%= job_resume_user_count(@job) %>人投递，简历<%= @job.resumes.count %>份</p>
+    <hr>
+    <%= render :partial => 'resume', :collection => @resumes, :as => :resume %>
+  </div>
+</div>

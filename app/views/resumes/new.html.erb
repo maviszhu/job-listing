@@ -1,6 +1,11 @@
-<h2>send resume</h2>
-<%= simple_form_for [@job,@resume] do |f| %>
-<%= f.input :description %>
-<%= f.input :attachment %>
-<%= f.submit :'Submit', data: {disable_with: 'Submitting...'} %>
-<% end %>
+<div class="innercontent">
+  <div class="row well">
+    <h2 class="text-info">发送简历</h2>
+    <hr>
+    <%= simple_form_for [@job,@resume] do |f| %>
+    <%= f.input :description %>
+    <%= f.input :attachment %>
+    <%= f.submit :'发送', class: 'btn btn-primary', data: {disable_with: '上传中...'} %>
+    <% end %>
+  </div>
+</div>

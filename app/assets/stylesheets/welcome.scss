@@ -7,9 +7,11 @@
   background-repeat: no-repeat;
   background-size: cover;
   padding-bottom: 110px;
+  margin: 0px -15px 20px;//顶部margin为0，因此可以直接接着导航栏；左右margin为负15，因此可以顶到浏览器的边缘（抵消 container-fluid 的 15px 左右padding);底部margin为20，会跟下面的内容撑开距离
 }
 
 .title {
+  color: #fff;
   text-align: center;
   margin-top: 200px;
   margin-bottom: 80px;
@@ -27,4 +29,8 @@
   margin-bottom: 60px;
   text-align: center;
   color: white;
+}
+
+.btn-lg{
+  width: 200px;
 }

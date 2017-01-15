@@ -1,4 +1,4 @@
-<div class='container-fluid'>
+<div class="innercontent">
   <div class="row">
     <p>
       <i class="fa fa-arrow-left"></i><%= link_to(jobs_path, class: 'btn btn-link') do %>
@@ -35,15 +35,15 @@
 
         <% if current_user && current_user == @job.user %>
         <%= link_to('修改', edit_job_path(@job), class: 'btn btn-primary pull-right') %>
-
       <% else %>
         <div class="pull-right">
           <p><%= link_to('发个简历', new_job_resume_path(@job),class: 'btn btn-primary btn-block') %></p>
 
           <p><%= link_to('#',class: 'btn btn-default btn-block') do %>
             <i class="fa fa-heart-o text-danger"></i>&nbsp;&nbsp;收藏<% end %></p>
-          <% end %>
         </div>
+        <% end %>
+
       </div>
     </div>
   </div>
@@ -65,5 +65,4 @@
       <p>此处是公司介绍</p>
     </div>
   </div>
-
 </div>

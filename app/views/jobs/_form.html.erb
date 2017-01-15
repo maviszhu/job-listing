@@ -1,8 +1,8 @@
 <%= simple_form_for @job do |f| %>
-<%= f.input :title %>
-<%= f.input :content %>
-<%= f.input :wage_min %>
-<%= f.input :wage_max %>
-<%= f.input :contact %>
-<%= f.submit "Submit", class: 'btn btn-primary', data: { disable_with: "Submitting"} %>
+<%= f.input :title, label: "职位名称"%>
+<%= f.input :content, label: "简要描述" %>
+<%= f.input :wage_min, label: "最低薪资／月" %>
+<%= f.input :wage_max, label: "最高薪资／月" %>
+<%= f.input :contact, label: "联系方式" %>
+<%= f.submit "保存", class: 'btn btn-primary', data: { disable_with: "上传中..."} %>
 <% end %>

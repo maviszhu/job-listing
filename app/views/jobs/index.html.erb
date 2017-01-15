@@ -1,28 +1,30 @@
-<div class='col-md-12'>
-  <div>
-    <% if current_user %>
-    <%= link_to('Add a job', new_job_path, class: 'btn btn-primary pull-right') %>
-    <% end %>
-  </div>
+<div class='container'>
+  <div class='col-md-12'>
+    <div>
+      <% if current_user %>
+      <%= link_to('Add a job', new_job_path, class: 'btn btn-primary pull-right') %>
+      <% end %>
+    </div>
 
-  <div class="well">
-    <div class="row">
-      <div class="col-md-6">
-        <%= render 'search' %>
+    <div class="well">
+      <div class="row">
+        <div class="col-md-6">
+          <%= render 'search' %>
+        </div>
+        <div class="col-md-6">
+          <ul class='list-inline pull-right'>
+            <li class="active btn btn-link"><%= link_to(jobs_path(:order => 'by_updated_at')) do %>更新时间<span class="fa fa-arrow-down"></span><% end %></li>
+            <li class="btn btn-link"><%= link_to(jobs_path(:order => 'by_wage_min')) do %>薪资下限<span class="fa fa-arrow-down"></span><% end %></li>
+            <li class="btn btn-link"><%= link_to(jobs_path(:order => 'by_wage_max')) do %>薪资上限<span class="fa fa-arrow-down"></span><% end %></li>
+          </ul>
+        </div>
       </div>
-      <div class="col-md-6">
-        <ul class='list-inline pull-right'>
-          <li class="active btn btn-link"><%= link_to(jobs_path(:order => 'by_updated_at')) do %>更新时间<span class="fa fa-arrow-down"></span><% end %></li>
-          <li class="btn btn-link"><%= link_to(jobs_path(:order => 'by_wage_min')) do %>薪资下限<span class="fa fa-arrow-down"></span><% end %></li>
-          <li class="btn btn-link"><%= link_to(jobs_path(:order => 'by_wage_max')) do %>薪资上限<span class="fa fa-arrow-down"></span><% end %></li>
-        </ul>
-      </div>
+
+    </div>
+
+    <div class="joblist">
+      <%= render :partial => 'job_item', :collection => @jobs, :as => :job %>
     </div>
 
   </div>
-
-  <div class="joblist">
-    <%= render :partial => 'job_item', :collection => @jobs, :as => :job %>
-  </div>
-
 </div>

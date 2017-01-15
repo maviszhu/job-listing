@@ -22,7 +22,8 @@
         <div class="panel-body">
           <div class="col-xs-12 col-md-12 section-box">
             <div class="email" style="padding-top: 10px;">小米科技</div>
-            <h2><%= link_to(job.title, job_path(job), class: 'text-info', style: 'color: #00b38a;')%></h2>
+            <%= link_to(job_path(job)) do%>
+            <h3><%= job.title %></h3><% end %>
             <p>
               这是一段职位描述。<br>
               这是一段职位描述。<br>
@@ -41,11 +42,13 @@
 
         <div class="panel-footer text-center" style="width:4em">
           <% if current_user && current_user == job.user%>
-          <%= link_to('Edit', edit_job_path(job), class: 'btn btn-sm btn-default') %><br>
-          <%= link_to('Delete', job_path(job), method: :delete, data: {confirm:'Are you sure?'},class: 'btn btn-sm btn-default') %>
+          <%= link_to(edit_job_path(job), class: 'btn btn-default') do%>
+          <i class="fa fa-cog" aria-hidden="true"></i><% end %><br><br>
+          <%= link_to(job_path(job), method: :delete, data: {confirm:'Are you sure?'},class: 'btn btn-default') do%>
+          <i class="fa fa-trash-o"></i><% end %>
         <% else %>
           <button type="button" class="btn btn-default">
-            <span class="fa fa-star" aria-hidden="true"></span>
+            <span class="fa fa-heart-o" aria-hidden="true"></span>
           </button>
           <% end %>
 

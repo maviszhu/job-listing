@@ -1,44 +1,21 @@
 <div>
   <h2 class='text-center'>All Jobs</h2>
-  <div>
+  <div class='row'>
     <%= link_to('Add a job', new_admin_job_path, class: 'btn btn-primary pull-right') %>
   </div>
+  <div class="row">
+    <div class="panel panel-default">
+      <ul class="list-group">
+        <li class="list-group-item">
+          <span class="job_status">状态</span>
+          <span class="job_date">更新时间</span>
+          <span class="job_title">职位名称</span>
+          <span class="job_resume">简历投递</span>
+          <span class="job_set">操作</span>
+        </li>
+        <%= render :partial => 'job_item', :collection => @jobs, :as => :job %>
+      </ul>
+    </div>
+  </div>
 
-  <table class='table'>
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>Title</th>
-        <th>Creator</th>
-        <th>简历投递</th>
-        <th>Updated_at</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @jobs.each do |job| %>
-      <tr>
-        <td>#</td>
-        <td><%= job_status(job) %><%= link_to(job.title, admin_job_path(job))%></td>
-        <td><%= job.user.email %></td>
-        <td>
-          <%= link_to(admin_job_resumes_path(job)) do %><%= job_resume_user_count(job) %>人投递，简历<%= job.resumes.count %>份
-          <% end %>
-        </td>
-        <td><%= job.updated_at %></td>
-        <td>
-          <% if job.is_hidden %>
-          <%= link_to('Publish', publish_admin_job_path(job), method: :post, class: 'btn btn-default') %>
-          <% else %>
-          <%= link_to('Hide', hide_admin_job_path(job), method: :post, class: 'btn btn-default') %>
-          <% end %>
-        </td>
-        <td>
-          <%= link_to('Edit', edit_admin_job_path(job), class: 'btn btn-sm btn-default') %>
-          <%= link_to('Delete', admin_job_path(job), method: :delete, data: {confirm:'Are you sure?'},class: 'btn btn-sm btn-default') %>
-        </td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
 </div>

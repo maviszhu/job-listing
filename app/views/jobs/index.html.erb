@@ -1,15 +1,9 @@
 <div class='container'>
   <div class='col-md-12'>
-    <div>
-      <% if current_user %>
-      <%= link_to('Add a job', new_job_path, class: 'btn btn-primary pull-right') %>
-      <% end %>
-    </div>
-
     <div class="well">
       <div class="row">
         <div class="col-md-6">
-          <%= render 'search' %>
+          <%= render 'common/search' %>
         </div>
         <div class="col-md-6">
           <ul class='list-inline pull-right'>

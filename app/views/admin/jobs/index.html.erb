@@ -1,8 +1,14 @@
 <div>
-  <h2 class='text-center'>All Jobs</h2>
-  <div class='row'>
-    <%= link_to('Add a job', new_admin_job_path, class: 'btn btn-primary pull-right') %>
+  <div class="row">
+    <p class="col-md-4">
+      <i class="fa fa-arrow-left"></i><%= link_to(jobs_path, class: 'btn btn-link') do %>
+      查看已发布的职位<% end %></p>
+    <div class='col-md-4 col-md-push-4'>
+      <%= link_to('新增职位', new_admin_job_path, class: 'btn btn-primary pull-right') %>
+    </div>
   </div>
+  <h2>已创建的职位</h2>
+
   <div class="row">
     <div class="panel panel-default">
       <ul class="list-group">

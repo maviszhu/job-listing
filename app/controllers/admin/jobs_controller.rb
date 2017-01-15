@@ -1,7 +1,7 @@
 class Admin::JobsController < ApplicationController
   before_action :authenticate_user!
   before_filter :check_admin
-  layout 'admin'
+  # layout 'admin'
   def index
     @jobs = Job.all.order('updated_at DESC')
   end

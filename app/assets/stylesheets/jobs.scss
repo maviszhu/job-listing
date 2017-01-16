@@ -39,3 +39,40 @@ h2{font-size:20px; }
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+// Place all the styles related to the welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.jumbotron {
+  background-image:url('https://ww3.sinaimg.cn/large/006y8lVagw1fbst8xwvhkj31kw0w9gsx.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-bottom: 110px;
+  margin: 0px -15px 20px;//顶部margin为0，因此可以直接接着导航栏；左右margin为负15，因此可以顶到浏览器的边缘（抵消 container-fluid 的 15px 左右padding);底部margin为20，会跟下面的内容撑开距离
+}
+
+.title {
+  color: #fff;
+  text-align: center;
+  margin-top: 200px;
+  margin-bottom: 80px;
+}
+
+.slogan {
+  margin-top: 10px;
+  margin-bottom: 50px;
+  text-align:left;
+  color: white;
+  top: 12px;
+}
+
+.lead {
+  margin-bottom: 150px;
+}
+
+.btn-lg{
+  width: 150px;
+  margin-left: 15px;
+  margin-bottom: 150px;
+}

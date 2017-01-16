@@ -21,12 +21,11 @@
     </div>
     <div class="panel-body">
       <div class="col-xs-12 col-md-12 section-box">
-        <div class="email" style="padding-top: 10px;">小米科技</div>
+        <div class="email" style="padding-top: 10px;">下一站科技</div>
         <%= link_to(job_path(job)) do%>
         <h3><%= job.title %></h3><% end %>
         <p>
-          这是一段职位描述。<br>
-          这是一段职位描述。<br>
+          <%= simple_format(job.content) %>
         </p>
         <hr/>
         <div class="row rating-desc">

@@ -9,7 +9,7 @@
     <div class="row">
       <div class='col-md-12'>
         <h2><%= @job.title %></h2>
-        <h4 class="text-muted">小米科技</h4>
+        <h4 class="text-muted"><%= @job.user.company %></h4>
       </div>
     </div>
 
@@ -19,7 +19,7 @@
         <p>
           <span style="font-size: 20px; color: rgb(224,69,60)"><%= @job.wage_min %>~<%= @job.wage_max %></span>
           <span>/月</span>
-          <span>&nbsp;&nbsp;<i class="fa fa-map-marker"></i>&nbsp;南京</span>
+          <span>&nbsp;&nbsp;<i class="fa fa-map-marker"></i>&nbsp;<%= @job.location %></span>
         </p>
         <p style="margin-top: 10px;">
           <i class="fa fa-calendar"></i>&nbsp;<%= @job.created_at %></p>

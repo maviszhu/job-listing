@@ -1,5 +1,7 @@
 <%= simple_form_for @job do |f| %>
 <%= f.input :title, label: "职位名称"%>
+<%= f.input :classify, collection: ["产品","设计","管理"], prompt: "选择职位分类" %>
+<%= f.input :location, label: "工作地点" %>
 <%= f.input :content, label: "简要描述" %>
 <%= f.input :wage_min, label: "最低薪资／月" %>
 <%= f.input :wage_max, label: "最高薪资／月" %>

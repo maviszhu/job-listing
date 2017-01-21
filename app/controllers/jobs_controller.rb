@@ -2,12 +2,18 @@ class JobsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :update, :edit, :destroy]
   before_action :check_user, only: [:edit, :update, :destroy]
   def index
-    @jobs = case params[:order]
-    when 'by_wage_min' then Job.hidden.order('wage_min DESC')
-    when 'by_wage_max' then Job.hidden.order('wage_max DESC')
-    when 'by_updated_at' then Job.hidden.order('updated_at DESC')
-    else
-      Job.hidden.order('created_at DESC')
+    @q = Job.ransack(params[:q])
+    @jobs = @q.result.hidden.includes(:user).paginate(:page => params[:page], :per_page => 5)
+    # @jobs = case params[:order]
+    # when 'by_wage_min' then @q.result.hidden.order('wage_min DESC')
+    # when 'by_wage_max' then @q.result.hidden.order('wage_max DESC')
+    # when 'by_updated_at' then @q.result.hidden.order('updated_at DESC')
+    # else
+    #   @q.result.hidden.order('created_at DESC')
+    # end
+    respond_to do |format|
+        format.html # index.html.erb
+        # format.json { render json: @jobs }
     end
   end
 

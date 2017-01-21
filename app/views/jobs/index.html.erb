@@ -11,14 +11,12 @@
 </div>
 <div class="innercontent">
   <div class="row well">
-    <div class="col-md-6">
-      <%= render 'common/search' %>
-    </div>
+    <%= render 'common/search' %>
     <div class="col-md-6">
       <ul class='list-inline pull-right'>
-        <li class="active btn btn-link"><%= link_to(jobs_path(:order => 'by_updated_at')) do %>更新时间<span class="fa fa-arrow-down"></span><% end %></li>
-        <li class="btn btn-link"><%= link_to(jobs_path(:order => 'by_wage_min')) do %>薪资下限<span class="fa fa-arrow-down"></span><% end %></li>
-        <li class="btn btn-link"><%= link_to(jobs_path(:order => 'by_wage_max')) do %>薪资上限<span class="fa fa-arrow-down"></span><% end %></li>
+        <li class="btn btn-link"><%= sort_link(@q, :updated_at, '更新时间', default_order: :desc) %></li>
+        <li class="btn btn-link"><%= sort_link(@q, :wage_min, '薪资下限', default_order: :desc) %></li>
+        <li class="btn btn-link"><%= sort_link(@q, :wage_max, '薪资上限', default_order: :desc) %></li>
       </ul>
     </div>
 
@@ -26,5 +24,8 @@
 
   <div>
     <%= render :partial => 'job_item', :collection => @jobs, :as => :job %>
+  </div>
+  <div class="text-center">
+    <%= will_paginate @jobs, renderer: BootstrapPagination::Rails %>
   </div>
 </div>

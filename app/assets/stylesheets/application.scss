@@ -955,13 +955,13 @@ $hr-border:                   $gray-lighter !default;
   border-radius: 2px;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
   overflow: hidden;
-  font-family: roboto;
+  // font-family: roboto;
 }
 
 .loginmodal-container h1 {
   text-align: center;
   font-size: 1.8em;
-  font-family: roboto;
+  // font-family: roboto;
 }
 
 .loginmodal-container input[type=submit] {
@@ -1013,7 +1013,7 @@ $hr-border:                   $gray-lighter !default;
   text-shadow: 0 1px rgba(0,0,0,0.1);
   background-color: #4d90fe;
   padding: 17px 0px;
-  font-family: roboto;
+  // font-family: roboto;
   font-size: 14px;
   /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#4787ed)); */
 }

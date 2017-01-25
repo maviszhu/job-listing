@@ -4,7 +4,7 @@
     <br></h1>
   <p class="slogan">
     <span class='text-muted'>你的降落伞准备好了吗？</span>
-    <i>Jump！</i>致力于帮助3～5年经验的人跳槽到下一个职场<a class="btn btn-lg btn-primary btn-circle" href="/jobs">上传简历</a>
+    <i>Jump！</i>致力于帮助3～5年经验的人跳槽到下一个职场<a href="#" class="btn btn-lg btn-primary btn-circle" data-toggle="modal" data-target="#signup-modal">立即注册</a>
   </p>
   <p class="lead"><br></p>
 
@@ -27,5 +27,23 @@
   </div>
   <div class="text-center">
     <%= will_paginate @jobs, renderer: BootstrapPagination::Rails %>
+  </div>
+</div>
+<div class="modal fade" id="signup-modal" tabindex="-1" role="dialog" backdrop="true" data-keyboard="true" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="loginmodal-container">
+      <h2>Sign up</h2>
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= f.error_notification %>
+      <div class="form-inputs">
+        <%= f.input :email, required: true, autofocus: true %>
+        <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+        <%= f.input :password_confirmation, required: true %>
+      </div>
+      <div class="form-actions">
+        <%= f.button :submit, "Sign up" %>
+      </div>
+      <% end %>
+    </div>
   </div>
 </div>

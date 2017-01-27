@@ -11,6 +11,17 @@ class User < ApplicationRecord
     is_admin?
   end
 
+  def is_post_resume?(job)
+    c = false
+    resumes.each do |resume|
+      if resume.job == job
+        c = true
+        break
+      end
+    end
+    return c
+  end
+
   def is_in_collection?(job)
     love_jobs.include?(job)
   end

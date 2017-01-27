@@ -1,5 +1,5 @@
 class JobsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :update, :edit, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :update, :edit, :destroy, :add_to_collection, :cancel_from_collection]
   before_action :check_user, only: [:edit, :update, :destroy]
   def index
     @q = Job.ransack(params[:q])

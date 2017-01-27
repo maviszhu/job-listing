@@ -40,7 +40,8 @@
     </div>
 
     <div class="panel-footer text-center" style="width:4em">
-      <% if current_user && current_user == job.user%>
+      <% if current_user %>
+      <% if current_user == job.user %>
       <%= link_to(edit_job_path(job), class: 'btn btn-default') do%>
       <i class="fa fa-cog" aria-hidden="true"></i><% end %><br><br>
       <%= link_to(job_path(job), method: :delete, data: {confirm:'Are you sure?'},class: 'btn btn-default') do%>
@@ -55,6 +56,10 @@
       <span class="fa fa-heart-o" aria-hidden="true"></span><% end %>
       <label class="label label-primary">未收藏</label>
       <% end %>
+      <% end %>
+    <% else %>
+      <%= link_to(add_to_collection_job_path(job), class: "btn btn-default", method: :post) do %>
+      <span class="fa fa-heart-o" aria-hidden="true"></span><% end %>
       <% end %>
 
     </div>

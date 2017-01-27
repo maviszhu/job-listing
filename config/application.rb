@@ -1,3 +1,5 @@
+
+
 require_relative 'boot'
 
 require 'rails/all'
@@ -12,4 +14,8 @@ module JobListing
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
   end
+end
+
+Rails.application.configure do
+  config.i18n.default_locale = :"zh-CN"
 end

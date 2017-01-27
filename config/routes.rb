@@ -3,8 +3,16 @@ Rails.application.routes.draw do
   root 'jobs#index'
   resources :jobs do
     resources :resumes
+    member do
+      post :add_to_collection
+      post :cancel_from_collection
+    end
   end
   resources :welcome
+
+  namespace :account do
+    resources :jobs
+  end
 
   namespace :admin do
     resources :jobs do

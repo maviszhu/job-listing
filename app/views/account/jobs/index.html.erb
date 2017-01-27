@@ -2,25 +2,19 @@
   <div class="row">
     <p class="col-md-4">
       <i class="fa fa-arrow-left"></i><%= link_to(jobs_path, class: 'btn btn-link') do %>
-      查看已发布的职位<% end %></p>
-    <div class='col-md-4 col-md-push-4'>
-      <%= link_to('新增职位', new_admin_job_path, class: 'btn btn-primary pull-right') %>
-    </div>
+      返回职位列表<% end %></p>
   </div>
-  <h2>已创建的职位</h2>
+  <h2>收藏的职位</h2>
 
   <div class="row">
     <div class="panel panel-default">
       <ul class="list-group">
         <li class="list-group-item">
-          <span class="job_status">状态</span>
           <span class="job_date">更新时间</span>
           <span class="job_title">职位名称</span>
           <span class="job_resume">简历投递</span>
-          <span class="job_set1">操作</span>
-          <span class="job_set2">删除</span>
         </li>
-        <%= render :partial => 'admin/jobs/job_item', :collection => @jobs, :as => :job %>
+        <%= render :partial => 'account/jobs/job_item', :collection => @jobs, :as => :job %>
       </ul>
     </div>
   </div>

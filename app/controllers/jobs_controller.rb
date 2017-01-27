@@ -55,6 +55,22 @@ class JobsController < ApplicationController
     end
   end
 
+  def add_to_collection
+    @job = Job.find(params[:id])
+    if !current_user.is_in_collection?(@job)
+      current_user.add_to_collection!(@job)
+    end
+    redirect_to :back
+  end
+
+  def cancel_from_collection
+    @job = Job.find(params[:id])
+    if current_user.is_in_collection?(@job)
+      current_user.cancel_from_collection!(@job)
+    end
+    redirect_to :back
+  end
+
 
   private
   def job_params

@@ -1,0 +1,8 @@
+<li class="list-group-item">
+  <span class="job_date"><%= job.updated_at %></span>
+  <span class="job_title"><%= link_to(job.title, admin_job_path(job))%>
+  </span>
+    <i class="fa fa-user-circle-o"></i>&nbsp;<%= job_resume_user_count(job) %>&nbsp;,&nbsp;
+    <i class="fa fa-envelope-o"></i>&nbsp;<%= job.resumes.count %>
+  </span>
+</li>

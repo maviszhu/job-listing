@@ -45,7 +45,7 @@ h2{font-size:20px; }
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .jumbotron {
-  background-image:url('https://ww3.sinaimg.cn/large/006y8lVagw1fbst8xwvhkj31kw0w9gsx.jpg');
+  background-image:url('https://ww1.sinaimg.cn/large/006tNc79gy1fc68evy84uj31kw0vze83.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   padding-bottom: 110px;
@@ -59,20 +59,22 @@ h2{font-size:20px; }
   margin-bottom: 80px;
 }
 
-.slogan {
-  margin-top: 10px;
-  margin-bottom: 50px;
+.jumbotron .slogan {
+  margin-top: 200px;
+  margin-bottom: 80px;
   text-align:left;
   color: white;
   top: 12px;
-}
-
-.lead {
-  margin-bottom: 150px;
 }
 
 .btn-lg{
   width: 150px;
   margin-left: 15px;
   margin-bottom: 150px;
+}
+.jumbotron .slogan {
+ background: rgba(0%,10%,20%,0.6);
+ border-radius: 2px;//圆角为0
+ // height: 128px;
+ padding:10px;
 }

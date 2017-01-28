@@ -1048,3 +1048,15 @@ $hr-border:                   $gray-lighter !default;
 .login-help{
   font-size: 12px;
 }
+
+#message {
+    position: fixed;
+    top: 10px;
+    left: 25%;
+    width: 50%;
+    height:20px;
+    border-radius:4px;
+}
+.alert {
+   padding:5px;
+}
